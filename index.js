@@ -7,16 +7,13 @@ main();
 
 function main(){
     for (let i = 0; i<5; i++){
-        let computerGuess = compGuess();
-        // console.log("Computer guess is",computerGuess);
-    
+        let computerGuess = compGuess();    
         let playerGuess = userGuess();
-        // console.log(playerGuess);
 
         console.log("Comp guess is",computerGuess);
         console.log(result(computerGuess, playerGuess));
     }
-    console.log("comp score:",compScore,"\nPlayer score:",playerScore,"\nTies:",tie);
+    console.log("Player score:",playerScore,"\ncomp score:",compScore,"\nTies:",tie);
 }
 
 
@@ -30,8 +27,8 @@ function userGuess(){
     while (true){
         let userChoice = prompt("Choose your fighter!");
         userChoice = userChoice.toLowerCase()
-        for (let i = 0; i<3; i++){
-            if (choices[i] == userChoice){
+        for (x of choices){
+            if (x == userChoice){
                 return userChoice;
             }
         }
