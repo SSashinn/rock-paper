@@ -1,5 +1,8 @@
 *{
-    background-color: wheat;
+    padding: 0;
+    margin: 20px;
+    box-sizing: border-box;
+    background-color: rgb(23, 19, 11);
 }
 
 #start{
@@ -8,18 +11,34 @@
     justify-content: center;
     
 }
+
 main{
     display: flex;
     justify-content: space-evenly;
     text-align: center;
     flex: 1;
     flex-wrap: wrap;
-    margin-top: 325px;
 }
 
 button{
     height: 50px;
     width: 150px;
-    background-color: crimson;
+    background-color: rgb(148, 136, 48);
     color: whitesmoke;
+}
+
+#userGuess,#compGuess{
+    margin-top: 20px;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 25px;
+    text-align: center;
+    color: rgb(152, 115, 71);
+}
+
+.userScore,.compScore,.tie{
+
+    color: rgb(152, 115, 71);
+    text-align: center;
+    font-size: 20px;
 }

@@ -3,23 +3,25 @@ let playerScore = 0;
 let compScore = 0;
 let tie = 0;
 
+// GETS USER GUESS
 let user = userGuess();
 let comp;
+
 // CALLS THE MAIN FUNCTION
 document.querySelector('.start').onclick = main;
-
-
 
 
 function main(){
     comp = compGuess();
 
     // TO COMPARE THE TWO RESULTS
-    let playerGuess = document.querySelector('#userGuess').textContent;
-    let computerGuess = document.querySelector('#compGuess').textContent; 
+    let playerGuess = document.querySelector('#compareUser').textContent;
+    let computerGuess = document.querySelector('#compareComp').textContent; 
     console.log(result(computerGuess, playerGuess));
 
     // PRINTS RESULT OF COMP ON SCREEN
+    document.getElementById('compGuess').textContent = `Comp Guess is
+    ${document.querySelector('#compareComp').textContent}`;
     document.getElementById('compGuess').style.visibility = 'visible'; 
 
     console.log("Player score:",playerScore,"\ncomp score:",compScore,"\nTies:",tie);
@@ -28,7 +30,7 @@ function main(){
 
 function compGuess(){
     let index = Math.floor(Math.random()*3);
-    document.querySelector('#compGuess').textContent = choices[index];
+    document.querySelector('#compareComp').textContent = choices[index];
 }
 
 
@@ -37,7 +39,8 @@ function userGuess(){
     document.querySelectorAll('button').forEach(function(button) {
         // WHEN A PARTICULAR BUTTON IS CLICKED
         button.onclick = () => {
-            document.querySelector('div').textContent = button.dataset.input;
+            document.querySelector('#userGuess').textContent = `User Guess is ${button.dataset.input}`;
+            document.querySelector('#compareUser').textContent = button.dataset.input;
         } 
     });
 };
@@ -46,16 +49,19 @@ function userGuess(){
 function result(computerGuess, playerGuess){
     if (computerGuess === playerGuess){
         tie++;
-        return "It was a tie!!"
+        document.querySelector('.tie').textContent = `No of ties are ${tie}`;
+        return 3;
     }
     else if (computerGuess==='rock'){
         switch (playerGuess) {
             case "paper":
                 playerScore++
-                return "You WON!!";
+                document.querySelector('.userScore').textContent = `User Score is ${playerScore}`;
+                return 1;
             case "scissors":
                 compScore++
-                return "You LOSE!!";
+                document.querySelector('.compScore').textContent = `Computer Score is ${compScore}`;
+                return 2;
             default:
                 return -1;
         }
@@ -64,10 +70,12 @@ function result(computerGuess, playerGuess){
         switch (playerGuess) {
             case "scissors":
                 playerScore++
-                return "You WON!!";
-            case "rock":
+                document.querySelector('.userScore').textContent = `User Score is ${playerScore}`;
+                return 1;
+                case "rock":
                 compScore++
-                return "You LOSE!!";
+                document.querySelector('.compScore').textContent = `Computer Score is ${compScore}`;
+                return 2;
             default:
                 return -1;
         }
@@ -76,10 +84,12 @@ function result(computerGuess, playerGuess){
         switch (playerGuess) {
             case "rock":
                 playerScore++
-                return "You WON!!";
+                document.querySelector('.userScore').textContent = `User Score is ${playerScore}`;
+                return 1;
             case "paper":
                 compScore++
-                return "You LOSE!!";
+                document.querySelector('.compScore').textContent = `Computer Score is ${compScore}`;
+                return 2;
             default:
                 return -1;
         }

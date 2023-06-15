@@ -8,17 +8,28 @@
 </head>
 <body>
     <main>
-        <button  type="button" data-input="rock" >Rock</button>
-        <button type="button" data-input="paper">Paper</button>
-        <button type="button" data-input="scissors">Scissors</button>
+        <button id="rock" type="button" data-input="rock" >Rock</button>
+        <button id="paper" type="button" data-input="paper">Paper</button>
+        <button id="scissors" type="button" data-input="scissors">Scissors</button>
     </main>
 
     <section id="start">
         <button class="start" type="button">Start</button>
     </section>
 
-    <div id="userGuess">INPUT</div>
+    <!-- PRINT GUESSES ON THE SCREEN -->
+    <div id="userGuess">User Guess</div>
     <div style="visibility: hidden;" id="compGuess">Computer Guess</div>
+
+    <!-- PRINT RESULTS ON THE SCREEN -->
+    <div class="userScore" >User Score is 0</div>
+    <div class="compScore">Computer score is 0</div>
+    <div class="tie">Tie is 0</div>
+
+    <!-- TO COMPARE THE GUESSES -->
+    <div style="display: none;" id="compareUser"></div>
+    <div style="display: none;" id="compareComp"></div>
+
     <script src="index.js" defer></script>
 </body>
 </html>
