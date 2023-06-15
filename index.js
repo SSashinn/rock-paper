@@ -2,16 +2,26 @@ const choices=["rock","paper","scissors"];
 let playerScore = 0;
 let compScore = 0;
 let tie = 0;
+
 let user = userGuess();
-let comp = compGuess();
+let comp;
+// CALLS THE MAIN FUNCTION
 document.querySelector('.start').onclick = main;
 
 
+
+
 function main(){
+    comp = compGuess();
+
+    // TO COMPARE THE TWO RESULTS
     let playerGuess = document.querySelector('#userGuess').textContent;
     let computerGuess = document.querySelector('#compGuess').textContent; 
     console.log(result(computerGuess, playerGuess));
+
+    // PRINTS RESULT OF COMP ON SCREEN
     document.getElementById('compGuess').style.visibility = 'visible'; 
+
     console.log("Player score:",playerScore,"\ncomp score:",compScore,"\nTies:",tie);
 }
 
@@ -22,23 +32,11 @@ function compGuess(){
 }
 
 
-// function userGuess(){
-// //     while (true){
-// //         let userChoice = prompt("Choose your fighter!");
-// //         userChoice = userChoice.toLowerCase()
-// //         for (x of choices){
-// //             if (x == userChoice){
-// //                 return userChoice;
-// //             }
-// //         }
-// //         console.log("INVALID INPUT!!");
-// //     }
-// // }
-
-
+// LOOPS THROUGH ALL BUTTONS 
 function userGuess(){
     document.querySelectorAll('button').forEach(function(button) {
-        button.onclick = function(){
+        // WHEN A PARTICULAR BUTTON IS CLICKED
+        button.onclick = () => {
             document.querySelector('div').textContent = button.dataset.input;
         } 
     });
