@@ -22,8 +22,6 @@ function main(){
     // PRINTS RESULT OF COMP ON SCREEN
     document.getElementById('compGuess').textContent = `Comp Guess is
     ${document.querySelector('#compareComp').textContent}`;
-    document.getElementById('compGuess').style.visibility = 'visible'; 
-
     console.log("Player score:",playerScore,"\ncomp score:",compScore,"\nTies:",tie);
 }
 
@@ -37,10 +35,13 @@ function compGuess(){
 // LOOPS THROUGH ALL BUTTONS 
 function userGuess(){
     document.querySelectorAll('button').forEach(function(button) {
-        // WHEN A PARTICULAR BUTTON IS CLICKED
         button.onclick = () => {
             document.querySelector('#userGuess').textContent = `User Guess is ${button.dataset.input}`;
+            
+            // variable created to compare the results, not shown on screen.
             document.querySelector('#compareUser').textContent = button.dataset.input;
+            // Reset the computer guess shown on screen
+            document.querySelector('#compGuess').textContent = 'Computer Guess'
         } 
     });
 };
