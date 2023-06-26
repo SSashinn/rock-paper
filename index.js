@@ -2,6 +2,7 @@ const choices=["rock","paper","scissors"];
 let playerScore = 0;
 let compScore = 0;
 let tie = 0;
+let index;
 
 // GETS USER GUESS
 let user = userGuess();
@@ -20,14 +21,18 @@ function main(){
     console.log(result(computerGuess, playerGuess));
 
     // PRINTS RESULT OF COMP ON SCREEN
-    document.getElementById('compGuess').textContent = `Comp Guess is
-    ${document.querySelector('#compareComp').textContent}`;
+    document.getElementById('compGuess').textContent = `Comp Guess is ${document.querySelector
+        ('#compareComp').textContent}`;
+
+    // Change computer guess image
+    document.querySelector('#comp-image').src = `${choices[index]}.png`;
+
     console.log("Player score:",playerScore,"\ncomp score:",compScore,"\nTies:",tie);
 }
 
 
 function compGuess(){
-    let index = Math.floor(Math.random()*3);
+    index = Math.floor(Math.random()*3);
     document.querySelector('#compareComp').textContent = choices[index];
 }
 
@@ -38,10 +43,14 @@ function userGuess(){
         button.onclick = () => {
             document.querySelector('#userGuess').textContent = `User Guess is ${button.dataset.input}`;
             
+            // Change the user choice image on screen
+            document.querySelector('#user-image').src = `${button.dataset.input}.png`;
             // variable created to compare the results, not shown on screen.
             document.querySelector('#compareUser').textContent = button.dataset.input;
             // Reset the computer guess shown on screen
-            document.querySelector('#compGuess').textContent = 'Computer Guess'
+            document.querySelector('#compGuess').textContent = 'Computer Guess';
+            // Reset the image on screen
+            document.querySelector('#comp-image').src = 'default.png';
         } 
     });
 };
