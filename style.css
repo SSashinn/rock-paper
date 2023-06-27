@@ -1,6 +1,6 @@
 *{
     padding: 0;
-    margin: 20px;
+    margin: 1x0px;
     box-sizing: border-box;
     background-color: rgb(23, 19, 11);
 }
@@ -12,7 +12,8 @@
     
 }
 
-.photo{
+.photo,
+.printGuess{
     display: flex;
     flex: 1;
     justify-content: space-evenly;
