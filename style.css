@@ -1,8 +1,13 @@
+:root{
+    --bg-color: rgb(23, 19, 11);
+    --text-color: rgb(148, 136, 48);
+}
+
 *{
     padding: 0;
-    margin: 1x0px;
+    margin: 0px;
     box-sizing: border-box;
-    background-color: rgb(23, 19, 11);
+    background-color: var(--bg-color);
 }
 
 #start{
@@ -24,14 +29,12 @@
 .comp-image{
     height: 300px;
     width: 250px;
-    margin: 0;
     margin-bottom: 80px;
-    color: rgb(148, 136, 48);
+    color: var(--text-color);
 }
 
 h2,
 img{
-    margin: 0;
     padding: 10px;
 }
 
@@ -39,7 +42,6 @@ img{
 #comp-image{
     height: 100%;
     width: 100%;
-    /* background-color: black; */
 }
 main{
     display: flex;
@@ -52,8 +54,12 @@ main{
 button{
     height: 50px;
     width: 150px;
-    background-color: rgb(148, 136, 48);
+    background-color: var(--text-color);
     color: whitesmoke;
+}
+
+button:hover{
+    cursor: pointer;
 }
 
 #userGuess,#compGuess{
@@ -62,12 +68,12 @@ button{
     font-style: italic;
     font-size: 25px;
     text-align: center;
-    color: rgb(152, 115, 71);
+    color: var(--text-color)
 }
 
 .userScore,.compScore,.tie{
 
-    color: rgb(152, 115, 71);
+    color: var(--text-color);
     text-align: center;
     font-size: 20px;
 }
